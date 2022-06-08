@@ -3,9 +3,6 @@
 {% block title %}{{ post.title }}{% endblock %}
 
 {% block content %}
-  {% with comments.count as total_comments %}
-    <h2>{{ total_comments }} comment{{ total_comments|pluralize }}</h2>
-  {% endwith %}
   <h1>{{ post.title }}</h1>
   <p class="date">
     Published {{ post.publish }} by {{ post.author }}
@@ -29,4 +26,6 @@
       <p><input type="submit" value="Add comment"></p>
     </form>
 {% endblock %}
-
+{% with comments.count as total_comments %}
+ <h2>{{ total_comments }} comment{{ total_comments|pluralize }}</h2>
+{% endwith %}
